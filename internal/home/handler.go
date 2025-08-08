@@ -20,5 +20,6 @@ func (h *HomeHandler) home(c *fiber.Ctx) error {
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
+	panic("PANIC!!!")
 	return c.SendString("Problem?")
 }
