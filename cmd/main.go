@@ -3,7 +3,6 @@ package main
 import (
 	"TemplFiberHTMX/config"
 	"TemplFiberHTMX/internal/home"
-	"TemplFiberHTMX/internal/pages"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -18,7 +17,6 @@ func main() {
 	app.Use(recover.New())
 
 	home.NewHandler(app)
-	pages.NewHandler(app)
 
-	app.Listen(":3000")  // curl -v http://127.0.0.1:3000/
+	app.Listen(":3000") // curl -v http://127.0.0.1:3000/
 }

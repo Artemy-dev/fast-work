@@ -1,6 +1,9 @@
 package home
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/log"
+) 
 
 type HomeHandler struct {
 	router fiber.Router
@@ -20,5 +23,6 @@ func (h *HomeHandler) home(c *fiber.Ctx) error {
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
+	log.Info("Error page is opened!")
 	return fiber.NewError(520, "Unknown Error")
 }
