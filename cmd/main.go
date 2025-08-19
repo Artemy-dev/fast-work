@@ -17,7 +17,7 @@ func main() {
 
 	app := fiber.New()
 
-	app.Use(logger.New())
+	app.Use(logger.New()) // 
 	app.Use(recover.New())
 	log.SetLevel(log.Level(logConfig.Level))
 	home.NewHandler(app)
