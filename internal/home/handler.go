@@ -20,7 +20,8 @@ func NewHandler(router fiber.Router) {
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
 	return c.Render("page", fiber.Map{
-		"Count": 1,
+		"Count": 100,
+		"IsAdmin": false,
 	})
 }
 
