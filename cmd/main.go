@@ -6,16 +6,20 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
-	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/gofiber/template/html/v2"
 )
 
 func main() {
 	config.Init()
 	config.NewDatabaseConfig()
 	logConfig := config.NewLogConfig()
+	engine := html.New("./html", ".html")
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		Views: engine,
+	})
 
 	app.Use(logger.New()) // 
 	app.Use(recover.New())
@@ -24,4 +28,5 @@ func main() {
 
 	app.Listen(":3000") // curl -v http://127.0.0.1:3000/
 }
- 
+
+// git add .; git commit -m "

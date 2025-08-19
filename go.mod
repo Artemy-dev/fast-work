@@ -9,6 +9,9 @@ require (
 	github.com/gofiber/fiber/v2 v2.52.9 // indirect
 	github.com/gofiber/fiber/v3 v3.0.0-beta.5 // indirect
 	github.com/gofiber/schema v1.6.0 // indirect
+	github.com/gofiber/template v1.8.3 // indirect
+	github.com/gofiber/template/html/v2 v2.1.3 // indirect
+	github.com/gofiber/utils v1.1.0 // indirect
 	github.com/gofiber/utils/v2 v2.0.0-beta.13 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
