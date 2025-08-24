@@ -18,11 +18,29 @@ func NewHandler(router fiber.Router) {
 	api.Get("/error", h.error)
 }
 
+type User struct {
+	ID   int
+	Name string
+}
+
 func (h *HomeHandler) home(c *fiber.Ctx) error {
-	return c.Render("page", fiber.Map{
-		"Count": 100,
-		"IsAdmin": false,
-	})
+	names := []string{"Tim", "Bob"}
+	users := []User{
+		{ID: 1, Name: "Tim"},
+		{ID: 2, Name: "Bob"},
+	}
+
+	data := struct {
+		Names []string
+		Users []User
+	}{Names: names, Users: users}
+
+	return c.Render("page", data)
+
+	// return c.Render("page", fiber.Map{
+	// 	"Count": 100,
+	// 	"IsAdmin": false,
+	// })
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
