@@ -3,6 +3,7 @@ package main
 import (
 	"TemplFiberHTMX/config"
 	"TemplFiberHTMX/internal/home"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
@@ -16,6 +17,11 @@ func main() {
 	config.NewDatabaseConfig()
 	logConfig := config.NewLogConfig()
 	engine := html.New("./html", ".html")
+	engine.AddFuncMap(map[string]interface{}{
+		"ToUpper": func (s string) string {
+			return strings.ToUpper(s)
+		},
+	})
 
 	app := fiber.New(fiber.Config{
 		Views: engine,

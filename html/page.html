@@ -6,11 +6,17 @@
     <title>Страница </title>
 </head>
 <body>
-    {{ range .Names }}
-    <p>{{ . }}</p>
-    {{ end }}
-    {{ range .Users }}
-    <p>{{ .ID }} - {{ .Name }}</p>
-    {{ end }}
+    {{$test := "Text"}} 
+    <div>
+        {{ range .Names }}
+        <p>{{ . }} - {{$test}}</p>
+        {{ end }}
+    </div>
+    {{$test := "New Text"}} 
+    <div>
+        {{ range .Users }}
+        <p>{{ .ID }} - {{ .Name | ToUpper}} - {{$test}}</p>
+        {{ end }}
+    </div>
 </body>
 </html>
